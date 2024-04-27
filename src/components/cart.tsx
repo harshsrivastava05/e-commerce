@@ -83,10 +83,12 @@ const Cart = () => {
                 href="/products"
                 className={buttonVariants({
                   className: "text-sm text-muted-foreground",
-                  variant:'link',
-                  size:'sm'
+                  variant: "link",
+                  size: "sm",
                 })}
-              >Add items to your cart</Link>
+              >
+                Add items to your cart
+              </Link>
             </SheetTrigger>
           </div>
         )}
