@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Icons } from "@/components/Icons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,16 +13,11 @@ import {
   AuthCredentialsValidator,
 } from "@/lib/validators/account-credentials-validator";
 import { trpc } from "@/trpc/client";
-import { useState } from "react";
+import { toast } from 'sonner'
+import { ZodError } from 'zod'
+import { useRouter } from 'next/navigation'
 
 const Page = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [formError, setFormError] = useState("");
-
-  const { data } = trpc.anyApiRouter.useQuery();
-  console.log(data);
-
   const {
     register,
     handleSubmit,
@@ -31,7 +26,39 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
-  const onSubmit = async (formData: TAuthCredentialsValidator) => {};
+  const router = useRouter()
+
+  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
+    onError: (err) => {
+      if (err.data?.code === 'CONFLICT') {
+        toast.error(
+          'This email is already in use. Sign in instead?'
+        )
+
+        return
+      }
+
+      if (err instanceof ZodError) {
+        toast.error(err.issues[0].message)
+
+        return
+      }
+
+      toast.error(
+        'Something went wrong. Please try again.'
+      )
+    },
+    onSuccess: ({ sentToEmail }) => {
+      toast.success(
+        `Verification email sent to ${sentToEmail}.`
+      )
+      router.push('/verify-email?to=' + sentToEmail)
+    },
+  });
+
+  const onSubmit = async ({ email, password }: TAuthCredentialsValidator) => {
+    mutate({ email, password });
+  };
 
   return (
     <>
@@ -59,8 +86,6 @@ const Page = () => {
                   <Label htmlFor="email">Email</Label>
                   <Input
                     {...register("email")}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
                     className={cn({
                       "focus-visible:ring-red-500": errors.email,
                     })}
@@ -75,8 +100,7 @@ const Page = () => {
                   <Label htmlFor="password">Password</Label>
                   <Input
                     {...register("password")}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
                     className={cn({
                       "focus-visible:ring-red-500": errors.password,
                     })}
@@ -88,9 +112,6 @@ const Page = () => {
                     </span>
                   )}
                 </div>
-
-                {formError && <span className="text-red-500">{formError}</span>}
-
                 <Button type="submit">Sign up</Button>
               </div>
             </form>
