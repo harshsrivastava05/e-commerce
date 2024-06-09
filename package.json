@@ -39,6 +39,7 @@
     "react-hook-form": "^7.48.2",
     "react-transition-group": "^4.4.5",
     "sonner": "^1.4.41",
+    "swiper": "^11.1.4",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"
