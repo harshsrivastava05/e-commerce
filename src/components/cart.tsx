@@ -14,9 +14,25 @@ import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Image from "next/image";
+import { useCart } from "@/hooks/use-cart";
+import { ScrollArea } from "./ui/scroll-area";
+import CartItem from "./CartItem";
+import { useEffect, useState } from "react";
 
 const Cart = () => {
-  const itemcount = 0;
+  const { items } = useCart();
+  const itemcount = items.length;
+
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const cartTotal = items.reduce(
+    (total, { product }) => total + product.price,
+    0
+  );
   const fee = 100;
 
   return (
@@ -27,16 +43,22 @@ const Cart = () => {
           className="h-6 w-6 flex-shrink-0 text-gray-500 group-hover:text-gray-600"
         />
         <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-          0
+          {isMounted ? itemcount : 0}
         </span>
       </SheetTrigger>
       <SheetContent className="flex flex-col w-full pr-0 sm:max-w-lg">
         <SheetHeader className="space-y-2.5 pr-6">
-          <SheetTitle>Cart(0)</SheetTitle>
+          <SheetTitle>Cart({itemcount})</SheetTitle>
         </SheetHeader>
         {itemcount > 0 ? (
           <>
-            <div className="flex w-full flex-col pr-6">Cart items</div>
+            <div className="flex w-full flex-col pr-6">
+              <ScrollArea>
+                {items.map(({ product }) => (
+                  <CartItem product={product} key={product.id} />
+                ))}
+              </ScrollArea>
+            </div>
             <div className="space-y-4 pr-6">
               <Separator />
               <div className="space-y-1.5 text-sm">
@@ -50,7 +72,7 @@ const Cart = () => {
                 </div>
                 <div className="flex space-y-1">
                   <span className="flex-1">Total</span>
-                  <span>{formatprice(fee)}</span>
+                  <span>{formatprice(cartTotal + fee)}</span>
                 </div>
               </div>
               <SheetFooter>

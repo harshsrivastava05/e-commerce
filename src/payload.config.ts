@@ -25,7 +25,7 @@ export default buildConfig({
     bundler: webpackBundler(),
     meta: {
       titleSuffix: "- DigitalMart",
-      favicon: "./favicon.ico",
+      favicon: "/favicon.ico",
       ogImage: "/thumbnail.jpg",
     },
   },
