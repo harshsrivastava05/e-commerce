@@ -50,3 +50,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 **Cart**
 ![Screenshot 2024-05-06 002502](https://github.com/harshsrivastava05/e-commerce/assets/130855160/c69ed127-a5de-4dac-b5e8-ec9ae0465d6a)
 
+**Cart with items**
+![image](https://github.com/user-attachments/assets/52c58a44-40d0-4f40-b5f8-e10b9b4526f9)
+
+**Item description**
+![image](https://github.com/user-attachments/assets/2236697b-8861-458f-84ae-d4b33c25abba)
+
+**Checkout page**
+![image](https://github.com/user-attachments/assets/20bd3660-8de9-47b1-9946-dc593f12ff7a)
+
+
+
