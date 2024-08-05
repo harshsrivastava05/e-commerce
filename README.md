@@ -62,6 +62,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ![Screenshot 2024-05-06 002439](https://github.com/harshsrivastava05/e-commerce/assets/130855160/c62f8af9-d092-4039-be33-cb3e2309984c)
 
+**Product tiles**
+![image](https://github.com/user-attachments/assets/a4fa71d8-1e0e-4168-9887-1ef7c20055a4)
+
 **Cart**
 ![Screenshot 2024-05-06 002502](https://github.com/harshsrivastava05/e-commerce/assets/130855160/c69ed127-a5de-4dac-b5e8-ec9ae0465d6a)
 
