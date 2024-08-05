@@ -39,6 +39,21 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 **Sign-up page**
 ![Screenshot 2024-05-06 002449](https://github.com/harshsrivastava05/e-commerce/assets/130855160/03400c38-5b3e-4c6c-ae9b-ac5d8aadf204)
 
+**Sign-in page as customer**
+![image](https://github.com/user-attachments/assets/4bc9bc3d-73a0-4b34-a69e-04d3e66a8481)
+
+**Sign-in as seller**
+![image](https://github.com/user-attachments/assets/6156ae69-ff8c-4c14-b205-0e312208115b)
+
+**Admin dashboard**
+![image](https://github.com/user-attachments/assets/354151a6-b5a6-4415-8221-b67bcd37d59f)
+
+**Users information**
+![image](https://github.com/user-attachments/assets/35442405-074d-44a8-9c0e-e9415acb15c0)
+
+**Product information**
+![image](https://github.com/user-attachments/assets/5d5b289b-9b88-4d85-8467-e9b16425c397)
+
 **Home screen**
 ![Screenshot 2024-05-06 002418](https://github.com/harshsrivastava05/e-commerce/assets/130855160/e8d2bc7b-db34-480f-b4dd-1ea038516faa)
 
