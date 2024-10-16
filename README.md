@@ -1,5 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+I developed a full-stack e-commerce website using Next.js, Payload, tRPC, and Tailwind CSS. The platform includes an admin dashboard for managing products, orders, and users, providing a seamless and efficient experience for both customers and administrators.
 ## Getting Started
 
 First, run the development server:
